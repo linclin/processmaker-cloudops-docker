@@ -4,10 +4,10 @@ CMD ["/bin/bash"]
 
 # Maintainer
 MAINTAINER ProcessMaker CloudOps <cloudops@processmaker.com>
-ENV PROCESSMAKER_VERSION 3.4.4
+ENV PROCESSMAKER_VERSION 3.4.7
 # Extra
-LABEL version="3.4.4"
-LABEL description="ProcessMaker 3.4.4 Docker Container."
+LABEL version="3.4.7"
+LABEL description="ProcessMaker 3.4.7 Docker Container."
 
 # Declare ARGS and ENV Variables
 ARG URL
