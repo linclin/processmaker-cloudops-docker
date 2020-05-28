@@ -4,9 +4,9 @@ CMD ["/bin/bash"]
 
 # Maintainer
 MAINTAINER ProcessMaker CloudOps <cloudops@processmaker.com>
-ENV PROCESSMAKER_VERSION 3.4.7
+ENV PROCESSMAKER_VERSION 3.4.11
 # Extra
-LABEL version="3.4.7"
+LABEL version="3.4.11"
 LABEL description="ProcessMaker 3.4.7 Docker Container."
 
 # Declare ARGS and ENV Variables
@@ -37,8 +37,9 @@ RUN yum install \
 
 # Download ProcessMaker Enterprise Edition
 
-ADD "processmaker-${PROCESSMAKER_VERSION}-community.tar.gz" /opt/
-
+#ADD "processmaker-${PROCESSMAKER_VERSION}-community.tar.gz" /opt/
+RUN mkdir -p /opt && wget https://downloads.sourceforge.net/project/processmaker/ProcessMaker/${PROCESSMAKER_VERSION}/processmaker-${PROCESSMAKER_VERSION}-community.tar.gz -P /opt && \
+  tar xzvf /opt/processmaker-${PROCESSMAKER_VERSION}-community.tar.gz && rm -rf /opt/processmaker-${PROCESSMAKER_VERSION}-community.tar.gz
 # Copy configuration files
 COPY processmaker-fpm.conf /etc/php-fpm.d
 RUN mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bk
