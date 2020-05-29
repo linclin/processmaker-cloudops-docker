@@ -38,7 +38,7 @@ RUN yum install \
 # Download ProcessMaker Enterprise Edition
 
 #ADD "processmaker-${PROCESSMAKER_VERSION}-community.tar.gz" /opt/
-RUN mkdir -p /opt && wget https://downloads.sourceforge.net/project/processmaker/ProcessMaker/${PROCESSMAKER_VERSION}/processmaker-${PROCESSMAKER_VERSION}-community.tar.gz -P /opt && \
+RUN mkdir -p /opt && wget https://svwh.dl.sourceforge.net/project/processmaker/ProcessMaker/${PROCESSMAKER_VERSION}/processmaker-${PROCESSMAKER_VERSION}-community.tar.gz -P /opt && \
   tar xzvf /opt/processmaker-${PROCESSMAKER_VERSION}-community.tar.gz && rm -rf /opt/processmaker-${PROCESSMAKER_VERSION}-community.tar.gz
 # Copy configuration files
 COPY processmaker-fpm.conf /etc/php-fpm.d
