@@ -39,7 +39,7 @@ RUN yum install \
 
 #ADD "processmaker-${PROCESSMAKER_VERSION}-community.tar.gz" /opt/
 RUN mkdir -p /opt && wget https://svwh.dl.sourceforge.net/project/processmaker/ProcessMaker/${PROCESSMAKER_VERSION}/processmaker-${PROCESSMAKER_VERSION}-community.tar.gz -P /opt && \
-  tar xzvf /opt/processmaker-${PROCESSMAKER_VERSION}-community.tar.gz && rm -rf /opt/processmaker-${PROCESSMAKER_VERSION}-community.tar.gz
+  tar xzvf /opt/processmaker-${PROCESSMAKER_VERSION}-community.tar.gz -C /opt && rm -rf /opt/processmaker-${PROCESSMAKER_VERSION}-community.tar.gz && ls -al /opt
 # Copy configuration files
 COPY processmaker-fpm.conf /etc/php-fpm.d
 RUN mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bk
